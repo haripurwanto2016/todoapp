@@ -49,7 +49,7 @@
                 bind:value={todo}
             />
             <button on:click={handleAddCard} class="button is-primary"
-                >Add girl</button
+                >Tambah</button
             >
         </div>
     </div>

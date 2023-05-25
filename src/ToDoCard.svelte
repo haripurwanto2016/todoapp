@@ -22,7 +22,7 @@
         <div class="card-content">
             <div class="columns">
                 <div class="column is-1">
-                    {#if listName != 'Girls'}
+                    {#if listName != 'Rencana'}
                     <span class="icon has-text-primary" on:click={handleMoveLeft}>
                         <i class="fa fa-chevron-left"></i>
                     </span>
@@ -38,7 +38,7 @@
                 </div>
 
                 <div class="column is-1">
-                    {#if listName != "Wives"}
+                    {#if listName != "Selesai"}
                         <span class="icon has-text-primary" on:click={handleMoveRight}>
                             <i class="fa fa-chevron-right"></i>
                         </span>
