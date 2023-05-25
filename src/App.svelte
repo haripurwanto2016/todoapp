@@ -17,10 +17,10 @@
 
 	function handleEventAddCard(event) {
 		let data = event.detail;
-		if (data.listName == "Rencana") {
+		if (data.listName == "Girls") {
 			taskCards = [...taskCards, { todo: data.todo }];
 			localStorage.setItem("taskCards", JSON.stringify(taskCards));
-		} else if (data.listName == "Berjalan") {
+		} else if (data.listName == "Girlfriends") {
 			inProgressCards = [...inProgressCards, { todo: data.todo }];
 			localStorage.setItem(
 				"inProgressCards",
@@ -35,11 +35,11 @@
 	function handleEventDeleteCard(event) {
 		let data = event.detail;
 
-		if (data.listName == "Rencana") {
+		if (data.listName == "Girls") {
 			taskCards.splice(data.index, 1);
 			taskCards = taskCards;
 			localStorage.setItem("taskCards", JSON.stringify(taskCards));
-		} else if (data.listName == "Berjalan") {
+		} else if (data.listName == "Girlfriends") {
 			inProgressCards.splice(data.index, 1);
 			inProgressCards = inProgressCards;
 			localStorage.setItem(
@@ -56,7 +56,7 @@
 	function handleEventMoveRight(event) {
 		let data = event.detail;
 
-		if (data.listName == "Rencana") {
+		if (data.listName == "Girls") {
 			let cardToMove = taskCards.splice(data.index, 1);
 			inProgressCards = [...inProgressCards, cardToMove[0]];
 			taskCards = taskCards;
@@ -65,7 +65,7 @@
 				"inProgressCards",
 				JSON.stringify(inProgressCards)
 			);
-		} else if (data.listName == "Berjalan") {
+		} else if (data.listName == "Girlfriends") {
 			let cardToMove = inProgressCards.splice(data.index, 1);
 			doneCards = [...doneCards, cardToMove[0]];
 			inProgressCards = inProgressCards;
@@ -80,7 +80,7 @@
 	function handleEventMoveLeft(event) {
 		let data = event.detail;
 
-		if (data.listName == "Berjalan") {
+		if (data.listName == "Girlfriends") {
 			let cardToMove = inProgressCards.splice(data.index, 1);
 			taskCards = [...taskCards, cardToMove[0]];
 			inProgressCards = inProgressCards;
@@ -89,7 +89,7 @@
 				"inProgressCards",
 				JSON.stringify(inProgressCards)
 			);
-		} else if (data.listName == "Selesai") {
+		} else if (data.listName == "Wives") {
 			let cardToMove = doneCards.splice(data.index, 1);
 			inProgressCards = [...inProgressCards, cardToMove[0]];
 			doneCards = doneCards;
@@ -108,14 +108,14 @@
 	<div class="columns">
 		<CardList
 			cards={taskCards}
-			listName={"Rencana"}
+			listName={"Girls"}
 			on:addCard={handleEventAddCard}
 			on:deleteCard={handleEventDeleteCard}
 			on:moveRight={handleEventMoveRight}
 		/>
 		<CardList
 			cards={inProgressCards}
-			listName={"Berjalan"}
+			listName={"Girlfriends"}
 			on:addCard={handleEventAddCard}
 			on:deleteCard={handleEventDeleteCard}
 			on:moveRight={handleEventMoveRight}
@@ -123,7 +123,7 @@
 		/>
 		<CardList
 			cards={doneCards}
-			listName={"Selesai"}
+			listName={"Wives"}
 			on:addCard={handleEventAddCard}
 			on:deleteCard={handleEventDeleteCard}
 			on:moveLeft={handleEventMoveLeft}
@@ -131,7 +131,7 @@
 	</div>
 </div>
 <svelte:head>
-	<link rel="stylesheet" href="/build/bulma.min.css" />
+	<link rel="stylesheet" href="../build/bulma.min.css" />
 	<link
 		rel="stylesheet"
 		href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css"
